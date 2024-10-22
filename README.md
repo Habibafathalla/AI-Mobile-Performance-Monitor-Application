@@ -54,7 +54,7 @@ This section will walk you through the process of running the application.
 
 1. **Clone the Project Repository**
    - Start by cloning the project repository to your local machine. Open your terminal and run the following command:
-       ` git clone <repository-url>`
+       ` git clone https://github.com/Habibafathalla/AI-Mobile-Performance-Monitor-Application.git`
    -  Navigate into the cloned project directory:
        `cd <project-directory>`
    -  Once downloaded, extract the file (the model name.bin) from the compressed archive if necessary.
@@ -89,7 +89,8 @@ This section will walk you through the process of running the application.
 
          ```
       - After saving the changes, run `flutter pub get` to install the dependencies
-5. **Run the Application:** Execute `flutter run` to start the application.
+5. **Run the Application**
+      - Execute `flutter run` to start the application.
    
 **Important**: The model is stored in the system files and is loaded only once during installation. You do not need to reload it every time you start the application.
 
