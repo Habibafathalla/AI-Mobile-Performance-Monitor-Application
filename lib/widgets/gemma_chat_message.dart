@@ -29,10 +29,10 @@ class ChatMessageWidget extends StatelessWidget {
               color: const Color(0x80757575),
               borderRadius: BorderRadius.circular(8.0),
             ),
-            child: userQuestion.isNotEmpty
+            child: message.text.isNotEmpty
                 ? MarkdownBody(
                     selectable: true,
-                    data: userQuestion,
+                    data: message.text,
                   )
                 : const Center(child: CircularProgressIndicator()),
           ),
