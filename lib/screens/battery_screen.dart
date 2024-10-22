@@ -30,18 +30,20 @@ class _BatteryScreenState extends State<BatteryScreen> {
   }
 
 Future<void> _initBatteryInfo() async {
+  final batterykProvider = Provider.of<DeviceMetricsProvider>(context, listen: false); 
+
   try {
     final level = await _battery.batteryLevel;
-    print('Fetched Battery Level: $level'); // Debug print
-    if (mounted) { // Check if the widget is still mounted
+    print('Fetched Battery Level: $level'); 
+    if (mounted) { 
       setState(() {
         _batteryLevel = level;
+        batterykProvider.updateBatteryLevel(level); 
+
        
       });
-      // Update the provider with the battery level
-      // Provider.of<DeviceMetricsProvider>(context, listen: false).updateBatteryLevel(level);
+      
     }
-    Provider.of<DeviceMetricsProvider>(context, listen: false).updateBatteryLevel(level);
 
   } catch (e) {
     print('Error fetching battery level: $e');
@@ -60,10 +62,10 @@ Future<void> _initBatteryInfo() async {
     bool isCharging = _batteryState == BatteryState.charging;
 
     return Scaffold(
-      drawer: NavDrawer(),
+      drawer: const NavDrawer(),
       appBar: AppBar(
         title: const Text(
-          'Battery Info',
+          'Battery Information',
             style: TextStyle(
             color: Colors.white,
             fontSize: 20,
@@ -71,7 +73,7 @@ Future<void> _initBatteryInfo() async {
           ),
         backgroundColor: const Color.fromARGB(255, 42, 51, 128),
            iconTheme: const IconThemeData(
-        color: Colors.white, // Set drawer icon color to white
+        color: Colors.white,
       ),
       ),
       

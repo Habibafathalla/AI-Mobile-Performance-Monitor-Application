@@ -122,7 +122,7 @@ class NavDrawer extends StatelessWidget {
               style: TextStyle(color: Color.fromARGB(255, 42, 51, 128)),
             ),
             onTap: () {
-              Navigator.of(context).pop(); // Close the drawer
+              Navigator.of(context).pop(); 
               Navigator.push(
                 context,
                 MaterialPageRoute(

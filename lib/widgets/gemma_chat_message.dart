@@ -9,6 +9,8 @@ class ChatMessageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final parts = message.text.split('\n\n');
+    final userQuestion = parts.first; // The user question part
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10.0),
       child: Row(
@@ -27,10 +29,10 @@ class ChatMessageWidget extends StatelessWidget {
               color: const Color(0x80757575),
               borderRadius: BorderRadius.circular(8.0),
             ),
-            child: message.text.isNotEmpty
+            child: userQuestion.isNotEmpty
                 ? MarkdownBody(
                     selectable: true,
-                    data: message.text,
+                    data: userQuestion,
                   )
                 : const Center(child: CircularProgressIndicator()),
           ),

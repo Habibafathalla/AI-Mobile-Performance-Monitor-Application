@@ -27,7 +27,7 @@ class ChatScreenState extends State<ChatScreen> {
     bool isLoaded = await FlutterGemmaPlugin.instance.isLoaded;
     if (!isLoaded) {
       await for (int progress in FlutterGemmaPlugin.instance
-          .loadAssetModelWithProgress(fullPath: 'gemma-2b-it-cpu-int4.bin')) {
+          .loadAssetModelWithProgress(fullPath: 'model.bin')) {
         setState(() {
           _loadingProgress = progress;
         });
@@ -35,7 +35,7 @@ class ChatScreenState extends State<ChatScreen> {
     }
     await FlutterGemmaPlugin.instance.init(
       maxTokens: 512,
-      temperature: 0.6,
+      temperature: 1.0,
       topK: 1,
       randomSeed: 1,
     );
@@ -55,39 +55,37 @@ class ChatScreenState extends State<ChatScreen> {
             });
           },
           humanHandler: (text) {
-            final metricsProvider = Provider.of<DeviceMetricsProvider>(context, listen: false);
+          // Fetch device metrics
+          final metricsProvider = Provider.of<DeviceMetricsProvider>(context, listen: false);
+          final batteryLevel = metricsProvider.batteryLevel;
+          final freeMemory = metricsProvider.freeMemory;
+          final freeStorage = metricsProvider.freeStorage;
+          final isConnected = metricsProvider.isConnected;
 
-              final batteryLevel = metricsProvider.batteryLevel;
-              final freeMemory = metricsProvider.freeMemory;
-              final freeStorage = metricsProvider.freeStorage;
-              final isConnected = metricsProvider.isConnected;
-
-              String insights = '''
-              Device Insights:
-              - Battery Level: $batteryLevel%
-              - Free Memory: $freeMemory MB
-              - Free Storage: ${freeStorage.toStringAsFixed(2)} GB
-              - Wifi: ${isConnected ? 'Yes' : 'No'}
-              ''';
-              print(insights);
-
-              String combinedMessage = '$text\n\n$insights';
+          // Construct insights string
+          String insights = '''
+          Device Insights:
+          - Battery Level: $batteryLevel%
+          - Free Memory: $freeMemory MB
+          - Free Storage: ${freeStorage.toStringAsFixed(2)} GB
+          - Wifi: ${isConnected ? 'Yes' : 'No'}
+          ''';
+           print(insights);
+          String combinedMessage = '$text\n\n$insights';
             setState(() {
               _messages.add(Message(text: combinedMessage, isUser: true));
             });
-  
           },
           messages: _messages,
         )
             : LoadingWidget(
           message: _loadingProgress == null
-              ? 'Model is checking\n\nPlease wait for a few seconds'
+              ? 'Model is checking'
               : 'Model loading progress:',
           progress: _loadingProgress,
-            ),
-      ]
-   
-      );
+        
+      ),]
+    
+    );
   }
 }
-

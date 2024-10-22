@@ -9,8 +9,16 @@ class DeviceMetricsProvider with ChangeNotifier {
   int get batteryLevel => _batteryLevel;
   int get freeMemory => _freeMemory;
   double get freeStorage => _freeStorage;
-    bool get isConnected => _isConnected;
+  bool get isConnected => _isConnected;
 
+  void updateMetrics(int batteryLevel, int freeMemory, double freeStorage, bool isConnected) {
+    _batteryLevel = batteryLevel;
+    _freeMemory = freeMemory;
+    _freeStorage = freeStorage;
+    _isConnected = isConnected;
+    
+    notifyListeners();
+  }
 
   void updateBatteryLevel(int level) {
     _batteryLevel = level;
@@ -26,9 +34,9 @@ class DeviceMetricsProvider with ChangeNotifier {
     _freeStorage = storage;
     notifyListeners();
   }
- void updateNetworkStatus(bool status) {
+
+  void updateNetworkStatus(bool status) {
     _isConnected = status;
     notifyListeners(); 
   }
-
 }

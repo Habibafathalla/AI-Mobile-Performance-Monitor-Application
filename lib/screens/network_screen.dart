@@ -89,12 +89,12 @@ class _NetworkState extends State<NetworkScreen> {
 
   Future<void> _initNetworkInfo() async {
     String? wifiName;
-    final networkProvider = Provider.of<DeviceMetricsProvider>(context, listen: false); // Get the provider
+    final networkProvider = Provider.of<DeviceMetricsProvider>(context, listen: false); 
 
     try {
       if (!kIsWeb && (Platform.isAndroid || Platform.isIOS)) {
         if (await Permission.locationWhenInUse.request().isGranted) {
-          wifiName = await NetworkInfo().getWifiName(); // Get Wi-Fi name
+          wifiName = await NetworkInfo().getWifiName(); 
         } else {
           wifiName = 'Unauthorized to get Wi-Fi Name';
         }
@@ -107,7 +107,6 @@ class _NetworkState extends State<NetworkScreen> {
     }
 
     setState(() {
-      // Determine connection status and update the state
       _isConnected = (wifiName != null && wifiName.isNotEmpty);
       _wifiName = _isConnected ? wifiName! : 'No network is connected'; 
       networkProvider.updateNetworkStatus(_isConnected); 

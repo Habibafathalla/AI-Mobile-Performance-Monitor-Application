@@ -20,25 +20,23 @@ class StorageInfoPageState extends State<StorageInfoPage>
   double _internalStorageUsedSpace = 0.0;
   double _internalStorageTotalSpace = 0.0;
 
-  late Timer _timer;
 
   @override
   void initState() {
     super.initState();
     _fetchStorageInfo();
 
-    _timer = Timer.periodic(const Duration(seconds: 5), (timer) {
-      _fetchStorageInfo();
-    });
+
   }
 
   @override
   void dispose() {
-    _timer.cancel(); 
     super.dispose();
   }
 
   Future<void> _fetchStorageInfo() async {
+   final storageProvider = Provider.of<DeviceMetricsProvider>(context, listen: false); // Get the provider
+
     _internalStorageFreeSpace =
         await FlutterStorageInfo.getStorageFreeSpaceInGB;
     _internalStorageUsedSpace =
@@ -47,8 +45,8 @@ class StorageInfoPageState extends State<StorageInfoPage>
         await FlutterStorageInfo.getStorageTotalSpaceInGB;
 
     setState(() {
-      Provider.of<DeviceMetricsProvider>(context,listen:false)
-      .updateFreeStorage(_internalStorageFreeSpace);
+      storageProvider.updateFreeStorage(_internalStorageFreeSpace);
+     
 
     });
   }
@@ -66,9 +64,7 @@ class StorageInfoPageState extends State<StorageInfoPage>
     return Scaffold(
       drawer: const NavDrawer(),
       appBar: AppBar(
-
         toolbarHeight: 80,
-        
         title: const Text(
           'Storage Information',
           style: TextStyle(

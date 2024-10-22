@@ -23,17 +23,18 @@ class _MemoryInfoScreenState extends State<MemoryInfoScreen> {
   }
 
   Future<void> getMemoryInfo() async {
-    // print('Attempting to fetch memory info...');
+    final memoryProvider = Provider.of<DeviceMetricsProvider>(context, listen: false); 
+
 
     try {
       Memory memory = await MemoryInfoPlugin().memoryInfo;
-      // print('Fetched Memory Info: $memory');
 
       setState(() {
         _memory = memory;
+        memoryProvider.updateFreeMemory(memory.freeMem?.toInt() ?? 0);
+
       });
 
-      Provider.of<DeviceMetricsProvider>(context, listen: false).updateFreeMemory(memory.freeMem?.toInt() ?? 0);
 
     } on PlatformException catch (e) {
       print('Error fetching memory info: ${e.message}');

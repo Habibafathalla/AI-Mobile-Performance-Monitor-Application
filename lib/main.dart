@@ -32,13 +32,14 @@ class _MyAppState extends State<MyApp> {
 
   void initState() {
     super.initState();
+
   }
+
 
 
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // title: 'PerfMonitor AI',
       theme: ThemeData.light().copyWith(
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color.fromARGB(255, 246, 251, 252),

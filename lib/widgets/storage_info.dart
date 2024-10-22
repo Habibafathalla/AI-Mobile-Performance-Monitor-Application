@@ -54,7 +54,7 @@ class StorageWidget extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: const Color.fromARGB(255, 42, 51, 128),
+                      color:  Color.fromARGB(255, 42, 51, 128),
                     ),
                   ),
             
