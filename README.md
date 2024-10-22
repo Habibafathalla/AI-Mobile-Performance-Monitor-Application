@@ -22,7 +22,7 @@ This application utilizes a hybrid approach for its AI functionality, leveraging
 
 - **Model:** The offline mode utilizes **Gemma** model, which is a family of lightweight, open models built from the research and technology that Google used to create the Gemini models.We used **Gemma-2B"** model.
 - **Quantization:**  The model has been quantized to 4 bits to optimize its size and performance for mobile environments [Gemma-2B-it-cpu-int4](https://www.kaggle.com/models/google/gemma/tfLite/gemma-2b-it-cpu-int4).
-- **Key Point:** The model was generated using [MediaPipe](https://ai.google.dev/edge/mediapipe/solutions/genai/llm_inference), which is  LLM Inference API lets you run large language models (LLMs) in form of **TensorFlow Lite** model completely on-device.With MediaPipe, you can use to perform a wide range of tasks,such as generating text, retrieving information in natural language form, and summarizing documents. 
+- **Key Point:** The model was generated using [MediaPipe](https://ai.google.dev/edge/mediapipe/solutions/genai/llm_inference), which is  LLM Inference API lets you run large language models (LLMs) in form of **TensorFlow Lite** model completely on-device.With MediaPipe, a wide range of tasks can be preformed ,such as generating text, retrieving information in natural language form, and summarizing documents. 
 
 **Online Mode:**
 
@@ -86,7 +86,7 @@ This section will walk you through the process of running the application.
 
 1. **Clone the Project Repository**
    - Start by cloning the project repository to your local machine. Open your terminal and run the following command:
-       ` git clone https://github.com/Habibafathalla/AI-Mobile-Performance-Monitor-Application.git`
+       ` git clone https://github.com/Habibafathalla/AI-Mobile-Performance-Monitor-Application.git ` then `git checkout master`
    -  Navigate into the cloned project directory:
        `cd <project-directory>`
    -  Once downloaded, extract the file (the model name.bin) from the compressed archive if necessary.
@@ -126,5 +126,4 @@ This section will walk you through the process of running the application.
    
 **Important**: The model is stored in the system files and is loaded only once during installation. You do not need to reload it every time you start the application.
 
-# Demo Link
-https://drive.google.com/drive/folders/1dvkNc-ZVnuyaJQm4JQw9Iv0rdyWgibOL?usp=sharing
+# [Demo Link](https://drive.google.com/drive/folders/1dvkNc-ZVnuyaJQm4JQw9Iv0rdyWgibOL?usp=sharing)
