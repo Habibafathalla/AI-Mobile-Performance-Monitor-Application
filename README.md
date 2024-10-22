@@ -2,14 +2,15 @@
 
 ## Table of Contents
 
-- [Introduction](#introduction)
+- [Overview](#overview)
 - [AI Model and Development](#ai-model-and-development)
 - [Features](#features)
+- [Mobile App UI Overview](#mobile-app-ui-overview)
 - [Technology Used](#technology-used)
 - [Steps to Run the Project](#steps-to-run-the-project)
 - [Demo Link](#demo-link)
 
-# Introduction
+# Overview
 
 This application empowers users to gain real-time insights into their mobile device's performance and engage in insightful conversations with an AI model for deeper investigation. It provides a user-friendly interface for monitoring key metrics such as battery level, storage usage, memory consumption, and network activity.
 
@@ -40,6 +41,37 @@ By combining offline and online capabilities, this application provides a user e
 - **AI-Powered Insights:** Get personalized insights and predictions about your device's performance from an AI model. 
 - **Offline Mode:** Access basic performance monitoring even when you are not connected to the internet.
 - **User-Friendly Interface:** Navigate the application with ease.
+
+# Mobile App UI Overview
+
+This section displays a collection of images showcasing the user interface of the mobile application.
+
+<p align="center">
+  <img src="/UI/offline_model.jpeg" width="200" />
+   &nbsp; &nbsp; &nbsp; &nbsp;
+  <img src="/UI/online_model.jpeg" width="200" /> 
+</p>
+
+<p align="center">
+  <img src="UI/battery_info.jpeg" width="200" />
+   &nbsp; &nbsp; &nbsp; &nbsp;
+  <img src="UI/storage_info.jpeg" width="200" /> 
+</p>
+
+<p align="center">
+  <img src="UI/memory_info.jpeg" width="200" />
+   &nbsp; &nbsp; &nbsp; &nbsp;
+  <img src="UI/Wifi_on.jpeg" width="200" /> 
+</p>
+
+  <p align="center">
+  <img src="UI/wifi_off.jpeg" width="200" />
+   &nbsp; &nbsp; &nbsp; &nbsp;
+</p>
+
+
+
+
 
 # Technology Used
 
