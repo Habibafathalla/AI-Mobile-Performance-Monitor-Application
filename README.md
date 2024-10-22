@@ -64,4 +64,5 @@ This section will walk you through the process of running the application.
      ```
 4. **Install Dependencies:** Run `flutter pub get` to install any necessary dependencies.
 5. **Run the Application:** Execute `flutter run` to start the application.
-
+   
+**Important**: The model is stored in the system files and is loaded only once during installation. You do not need to reload it every time you start the application.
